@@ -11,7 +11,13 @@ sysinfo.txt
 /Assets/AssetStoreTools*
 *.apk
 *.unitypackage
- 
+
+# =============== #
+# dxy added #
+# =============== #
+*.app
+*/[Ll]ibrary/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
