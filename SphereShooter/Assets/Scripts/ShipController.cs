@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour {
 
+	public GameObject bulletPrefab;
+	public Transform bulletSpawn;
+
 	public float radius = 0.55f;
 	public float translateSpeed = 180.0f;
 	public float rotateSpeed = 360.0f;
@@ -14,6 +17,7 @@ public class ShipController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		// movement
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
@@ -25,6 +29,24 @@ public class ShipController : MonoBehaviour {
 		if (Input.GetKey(KeyCode.DownArrow))  Translate(0, -translateSpeed);
 
 		UpdatePositionRotation();
+
+		// shooting
+		if (Input.GetKey(KeyCode.Space))  Fire();
+	}
+
+	void Fire()
+	{
+		// Create the Bullet from the Bullet Prefab
+		var bullet = (GameObject)Instantiate(
+			bulletPrefab,
+			transform.position,
+			transform.rotation);
+
+		// Add velocity to the bullet
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+
+		// Destroy the bullet after 2 seconds
+		Destroy(bullet, 2.0f);        
 	}
 
 	void Rotate(float amount)
