@@ -9,30 +9,23 @@ public class ProjectileController : MonoBehaviour {
 	public float rotateSpeed = 360.0f;
 
 	float angle = 0.0f;
-	public Vector3 direction = Vector3.one;
+//	public Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
-	public Material lineMat; 
 	public LineRenderer lineRenderer; 
-
+	private Vector3 direction; 
 	// Use this for initialization
 	void Start () {
-//		float distance = 10.0f;
-//		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-//		mousePosition =  Camera.main.ScreenToWorldPoint(mousePosition);
-//		mousePosition.z = 0;
-//
-//		direction = mousePosition - transform.position;
-//		direction.z = 0;
-//		direction.Normalize ();
+
+		Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+		mousePosition.z = 25f;
+		mousePosition =  Camera.main.ScreenToWorldPoint(mousePosition);
+		//		Vector3 direction = Vector3.ProjectOnPlane (mousePosition, transform.position);
+		direction = Vector3.Cross(transform.position, mousePosition);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
-		mousePosition.z = 25f;
-		mousePosition =  Camera.main.ScreenToWorldPoint(mousePosition);
-//		Vector3 direction = Vector3.ProjectOnPlane (mousePosition, transform.position);
-		Vector3 direction = Vector3.Cross(transform.position, mousePosition);
+		
 		transform.RotateAround(new Vector3(0.0f,0.0f,0.0f), direction, 50 * Time.deltaTime);
 
 //		Debug.Log (direction);
