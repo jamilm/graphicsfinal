@@ -21,12 +21,12 @@ public class ShipController : MonoBehaviour {
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
-		if (Input.GetKey(KeyCode.LeftArrow))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
-		if (Input.GetKey(KeyCode.RightArrow)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
+		if (Input.GetKey(KeyCode.A))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
+		if (Input.GetKey(KeyCode.D)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
 
 		// Translate forward/backward with up/down arrows
-		if (Input.GetKey(KeyCode.UpArrow))    Translate(0,  translateSpeed);
-		if (Input.GetKey(KeyCode.DownArrow))  Translate(0, -translateSpeed);
+		if (Input.GetKey(KeyCode.W))    Translate(0,  translateSpeed);
+		if (Input.GetKey(KeyCode.S))  Translate(0, -translateSpeed);
 
 		UpdatePositionRotation();
 
