@@ -9,7 +9,7 @@ public class ProjectileController : MonoBehaviour {
 	public float rotateSpeed = 360.0f;
 
 	float angle = 0.0f;
-	Vector3 direction = Vector3.one;
+	public Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
 
 	// Use this for initialization
@@ -26,9 +26,8 @@ public class ProjectileController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		Translate(translateSpeed, 0); 
-//		Translate(0, translateSpeed); 
-//		UpdatePositionRotation();
+		Vector3 perpendicular = new Vector3(1.0f, 0.0f, 0.0f);
+		transform.RotateAround(new Vector3(0.0f,0.0f,0.0f), perpendicular, 20 * Time.deltaTime);
 	}
 		
 	void Rotate(float amount)
