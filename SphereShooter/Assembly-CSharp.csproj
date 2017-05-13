@@ -46,6 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BoidController.cs" />
+     <Compile Include="Assets\Scripts\BoidFlocking.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CubeController.cs" />
+     <Compile Include="Assets\Scripts\EnemyFollow.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>

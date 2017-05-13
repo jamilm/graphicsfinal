@@ -17,8 +17,8 @@ public class ShipController : MonoBehaviour {
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
-		if (Input.GetKey(KeyCode.LeftArrow))  Rotate( rotateSpeed);
-		if (Input.GetKey(KeyCode.RightArrow)) Rotate(-rotateSpeed);
+		if (Input.GetKey(KeyCode.LeftArrow))  Translate(-translateSpeed, 0);//Rotate( rotateSpeed);
+		if (Input.GetKey(KeyCode.RightArrow)) Translate(translateSpeed, 0);//Rotate(-rotateSpeed);
 
 		// Translate forward/backward with up/down arrows
 		if (Input.GetKey(KeyCode.UpArrow))    Translate(0,  translateSpeed);
@@ -44,6 +44,15 @@ public class ShipController : MonoBehaviour {
 	{
 		transform.localPosition = rotation * Vector3.forward * radius;
 		transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag ("Coin")) 
+		{
+			other.gameObject.SetActive (false);
+//			Destroy (other.gameObject);
+		}
 	}
 
 }
