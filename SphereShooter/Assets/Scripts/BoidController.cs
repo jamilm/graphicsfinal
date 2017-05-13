@@ -13,7 +13,7 @@ public class BoidController : MonoBehaviour
 	public Vector3 flockCenter;
 	public Vector3 flockVelocity;
 
-	private GameObject[] boids;
+	public GameObject[] boids;
 
 	public float radius = 10;
 	public float cx = 0;
