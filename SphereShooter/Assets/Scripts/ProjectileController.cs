@@ -11,6 +11,8 @@ public class ProjectileController : MonoBehaviour {
 	float angle = 0.0f;
 	public Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
+	public Material lineMat; 
+	public LineRenderer lineRenderer; 
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +28,29 @@ public class ProjectileController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 perpendicular = new Vector3(1.0f, 0.0f, 0.0f);
-		transform.RotateAround(new Vector3(0.0f,0.0f,0.0f), perpendicular, 20 * Time.deltaTime);
+		Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+		mousePosition.z = 25f;
+		mousePosition =  Camera.main.ScreenToWorldPoint(mousePosition);
+//		Vector3 direction = Vector3.ProjectOnPlane (mousePosition, transform.position);
+		Vector3 direction = Vector3.Cross(transform.position, mousePosition);
+		transform.RotateAround(new Vector3(0.0f,0.0f,0.0f), direction, 50 * Time.deltaTime);
+
+//		Debug.Log (direction);
+//		Debug.Log (mousePosition);
+//		lineRenderer.SetPosition (0, transform.position);
+//		lineRenderer.SetPosition (1, mousePosition);
+//		GL.Begin(GL.LINES);
+//		lineMat.SetPass (0);
+//		GL.Color (Color.green);
+//		GL.Vertex (transform.position);
+//		GL.Vertex (perpendicular);
+//		GL.End ();
 	}
+
+//	void OnDrawGizmos() {
+//		Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+//		Gizmos.DrawRay (transform.position, mousePosition);
+//	}
 		
 	void Rotate(float amount)
 	{
