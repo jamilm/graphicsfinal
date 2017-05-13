@@ -36,14 +36,8 @@ public class BoidController : MonoBehaviour
 			Vector3 randomPosition = new Vector3 (px, py, pz); 
 			Quaternion randomRotation = Random.rotation;
 
-//			Vector3 position = new Vector3 (
-//				Random.value * GetComponent<Collider>().bounds.size.x,
-//				Random.value * GetComponent<Collider>().bounds.size.y,
-//				Random.value * GetComponent<Collider>().bounds.size.z
-//			) - GetComponent<Collider>().bounds.extents;
-//
 			GameObject boid = Instantiate(prefab, randomPosition, randomRotation) as GameObject;
-//			boid.transform.parent = transform;
+			boid.transform.parent = transform.parent;
 			boid.transform.localPosition = randomPosition;
 			boid.GetComponent<BoidFlocking>().SetController (gameObject);
 //			Debug.Log ("Set Controller");

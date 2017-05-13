@@ -27,10 +27,16 @@ public class BoidFlocking : MonoBehaviour
 			{
 //				rigidbody.velocity = rigidbody.velocity + Calc () * Time.deltaTime;
 				// velocity should be tangent to position on sphere
-				Vector3 normal = (earth.position - (rigidbody.position - new Vector3(1,1,1))).normalized;
-				Vector3 velocity = rigidbody.velocity + Calc () * Time.deltaTime;
-				rigidbody.velocity = Vector3.ProjectOnPlane (velocity, normal);
+				// normal is from positoin to middle
+				Vector3 normal = (earth.position - (rigidbody.position)).normalized;
 
+				Vector3 velocity = rigidbody.velocity + Calc () * Time.deltaTime;
+				//rigidbody.velocity = velocity;
+
+				Vector3 perp = Vector3.Cross (velocity, normal);
+				transform.RotateAround (new Vector3 (0.0f, 0.0f, 0.0f), perp, velocity.magnitude * 100 * Time.deltaTime);
+				//rigidbody.velocity = Vector3.ProjectOnPlane (velocity, normal);
+				Debug.DrawRay (rigidbody.position, rigidbody.velocity * 2.0f);
 				// enforce minimum and maximum speeds for the boids
 				float speed = rigidbody.velocity.magnitude;
 				if (speed > maxVelocity)
@@ -43,7 +49,7 @@ public class BoidFlocking : MonoBehaviour
 				}
 			}
 
-			float waitTime = Random.Range(0.3f, 0.5f);
+			float waitTime = Random.Range(0.0f, 0.1f);
 			yield return new WaitForSeconds (waitTime);
 		}
 	}
@@ -61,7 +67,6 @@ public class BoidFlocking : MonoBehaviour
 		flockCenter = flockCenter - transform.localPosition;
 		flockVelocity = flockVelocity - rigidbody.velocity;
 		follow = follow - transform.localPosition;
-
 		return (flockCenter + flockVelocity + follow * 2 + randomize * randomness);
 	}
 
