@@ -16,10 +16,12 @@ public class BoidFlocking : MonoBehaviour
 	public int health;
 	public Rigidbody earth; 
 	public float radius; 
+	private float planetAndBoidRadius; 
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
 		health = 5;
+		planetAndBoidRadius = radius + transform.localScale.x; // assumes x, y, z transformed equally
 //		StartCoroutine ("BoidSteering");
 	}
 		
@@ -94,9 +96,9 @@ public class BoidFlocking : MonoBehaviour
 			}
 
 			Vector3 dist = rigidbody.position - earth.position;
-			if (dist.magnitude > .5f) {
+			if (dist.magnitude > planetAndBoidRadius) {
 				dist.Normalize ();
-				dist *= 0.5f;
+				dist *= planetAndBoidRadius;
 				rigidbody.position = dist;
 			}
 		}
