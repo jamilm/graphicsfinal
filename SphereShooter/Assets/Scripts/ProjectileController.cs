@@ -64,15 +64,15 @@ public class ProjectileController : MonoBehaviour {
 		transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
 	}
 
-	void OnTriggerEnter (Collider col)
-    {
-        if(col.gameObject.name == "Cube(Clone)")
-        {
-            if (col.gameObject.GetComponent<BoidFlocking>().health-- <= 0) {
-            	Destroy(col.gameObject);
-            }
-            Destroy(this.gameObject);
-        }
-    }
+//
+//	void OnTriggerEnter (Collider col)
+//    {
+//        if(col.gameObject.name == "Cube(Clone)")
+//        {
+//            Destroy(col.gameObject);
+//            Destroy(this.gameObject);
+//        }
+//    }
+
 
 }
