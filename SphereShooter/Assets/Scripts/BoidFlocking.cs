@@ -59,7 +59,7 @@ public class BoidFlocking : MonoBehaviour
 //				separation -= boidController.boids [i].transform.position;
 //			}
 //		}
-		return (flockCenter + flockVelocity + follow * 10.0f  + randomize * randomness);
+		return (flockCenter * 0.1f + flockVelocity * 0.1f + follow * 1.0f  + 5.0f* randomize * randomness);
 	}
 
 	public void SetController (GameObject theController)
