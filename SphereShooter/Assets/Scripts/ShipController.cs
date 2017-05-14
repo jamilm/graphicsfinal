@@ -13,7 +13,7 @@ public class ShipController : MonoBehaviour {
 
 	private float bulletsPerSecond = 5f;
  	private bool shooting = false;
-
+ 	public static bool alive = true;
 	float angle = 0.0f;
 	Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
@@ -31,19 +31,21 @@ public class ShipController : MonoBehaviour {
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
-		if (Input.GetKey(KeyCode.A))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
-		if (Input.GetKey(KeyCode.D)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
+		if (alive) {
+			if (Input.GetKey(KeyCode.A))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
+			if (Input.GetKey(KeyCode.D)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
 
-		// Translate forward/backward with up/down arrows
-		if (Input.GetKey(KeyCode.W))    Translate(0,  translateSpeed);
-		if (Input.GetKey(KeyCode.S))  Translate(0, -translateSpeed);
+			// Translate forward/backward with up/down arrows
+			if (Input.GetKey(KeyCode.W))    Translate(0,  translateSpeed);
+			if (Input.GetKey(KeyCode.S))  Translate(0, -translateSpeed);
 
-		UpdatePositionRotation();
+			UpdatePositionRotation();
 
 		// shooting
-		shooting = false;
-		if (Input.GetKey(KeyCode.Space)){
-			shooting = true;
+			shooting = false;
+			if (Input.GetKey(KeyCode.Space)){
+				shooting = true;
+			}
 		}
 	}
 

@@ -34,6 +34,9 @@ public class HealthController : MonoBehaviour {
 
 		// Reset the damaged flag.
 		damaged = false;
+		if (currentHealth <= 0) {
+			ShipController.alive = false;
+		}
 	}
 
 	void OnTriggerEnter (Collider col)
