@@ -10,12 +10,13 @@ public class BoidFlocking : MonoBehaviour
 	private float randomness;
 	private GameObject chasee;
 	private Rigidbody rigidbody; 
-
+	public int health;
 	public Rigidbody earth; 
 	public float radius; 
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
+		health = 5;
 //		StartCoroutine ("BoidSteering");
 	}
 		

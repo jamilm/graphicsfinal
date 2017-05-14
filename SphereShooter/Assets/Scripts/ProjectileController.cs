@@ -68,7 +68,9 @@ public class ProjectileController : MonoBehaviour {
     {
         if(col.gameObject.name == "Cube(Clone)")
         {
-            Destroy(col.gameObject);
+            if (col.gameObject.GetComponent<BoidFlocking>().health-- <= 0) {
+            	Destroy(col.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }

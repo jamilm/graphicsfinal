@@ -11,9 +11,16 @@ public class ShipController : MonoBehaviour {
 	public float translateSpeed = 180.0f;
 	public float rotateSpeed = 360.0f;
 
+	private float bulletsPerSecond = 5f;
+ 	private bool shooting = false;
+
 	float angle = 0.0f;
 	Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
+
+	void Start () {
+		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -31,25 +38,31 @@ public class ShipController : MonoBehaviour {
 		UpdatePositionRotation();
 
 		// shooting
-		if (Input.GetKey(KeyCode.Space))  Fire();
+		shooting = false;
+		if (Input.GetKey(KeyCode.Space)){
+			shooting = true;
+		}
 	}
 
 	void Fire()
 	{
-		// Create the Bullet from the Bullet Prefab
-		var bullet = (GameObject)Instantiate(
-			bulletPrefab,
-			transform.position,
-			transform.rotation);
+			if (!shooting) {
+				return;
+			}
+			// Create the Bullet from the Bullet Prefab
+			var bullet = (GameObject)Instantiate(
+				bulletPrefab,
+				transform.position,
+				transform.rotation);
 
-//		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
-//		otherController.direction = direction;
+	//		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
+	//		otherController.direction = direction;
 
-		// Add velocity to the bullet
-		// bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+			// Add velocity to the bullet
+			// bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
 
-		// Destroy the bullet after 2 seconds
-		Destroy(bullet, 2.0f);        
+			// Destroy the bullet after 2 seconds
+			Destroy(bullet, 2.0f);  
 	}
 
 	void Rotate(float amount)
