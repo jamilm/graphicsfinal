@@ -17,7 +17,7 @@ public class BoidController : MonoBehaviour
 
 	public List<GameObject> boids;
 
-	public float radius = 0.5f;
+	public float radius = 0.8f;
 	public float cx = 0;
 	public float cy = 0;
 	public float cz = 0;
@@ -40,7 +40,7 @@ public class BoidController : MonoBehaviour
 			Quaternion randomRotation = Random.rotation;
 
 			GameObject boid = Instantiate(prefab, randomPosition, randomRotation) as GameObject;
-			boid.transform.parent = transform.parent;
+			boid.transform.parent = transform;
 			boid.transform.localPosition = randomPosition;
 			boid.GetComponent<BoidFlocking>().SetController (gameObject);
 //			Debug.Log ("Set Controller");

@@ -15,13 +15,11 @@ public class BoidFlocking : MonoBehaviour
 	private Rigidbody rigidbody; 
 	public int health;
 	public Rigidbody earth; 
-	public float radius; 
-	private float planetAndBoidRadius; 
+	private float radius; 
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
 		health = 2;
-		planetAndBoidRadius = radius + transform.localScale.x; // assumes x, y, z transformed equally
 //		StartCoroutine ("BoidSteering");
 	}
 		
@@ -73,7 +71,7 @@ public class BoidFlocking : MonoBehaviour
 		randomness = boidController.randomness;
 		chasee = boidController.chasee;
 		inited = true;
-
+		radius = boidController.radius;
 		allBoids = boidController.boids;
 	}
 
@@ -96,9 +94,9 @@ public class BoidFlocking : MonoBehaviour
 			}
 
 			Vector3 dist = rigidbody.position - earth.position;
-			if (dist.magnitude > planetAndBoidRadius) {
+			if (dist.magnitude > radius) {
 				dist.Normalize ();
-				dist *= planetAndBoidRadius;
+				dist *= radius;
 				rigidbody.position = dist;
 			}
 		}
@@ -109,11 +107,11 @@ public class BoidFlocking : MonoBehaviour
     {
         if(col.gameObject.tag == "bullet")
         {
-            Destroy(col.gameObject);
+			Destroy(col.gameObject);
             if (this.health-- <= 0) {
 				GetComponent<ParticleSystem> ().Emit (10);
 
-            	Destroy(this.gameObject, 1.0f);
+            	Destroy(this.gameObject, 0.5f);
 				allBoids.Remove (this.gameObject);
 			}
         }

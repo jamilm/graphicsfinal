@@ -833,7 +833,7 @@ MonoBehaviour:
   flockCenter: {x: 0, y: 0, z: 0}
   flockVelocity: {x: 0, y: 0, z: 0}
   boids: []
-  radius: 0.5
+  radius: 0.51
   cx: 0
   cy: 0
   cz: 0
@@ -960,7 +960,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1307412012959604, guid: b04977f3579ba4903a0b557351dda8ec,
     type: 2}
   bulletSpawn: {fileID: 0}
-  radius: 0.55
+  radius: 0.51
   translateSpeed: 180
   rotateSpeed: 360
 --- !u!120 &1820501237
