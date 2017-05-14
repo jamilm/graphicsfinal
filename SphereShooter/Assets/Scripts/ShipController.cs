@@ -18,8 +18,11 @@ public class ShipController : MonoBehaviour {
 	Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
 
+	private AudioSource laser; 
+
 	void Start () {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
+		laser = GetComponent<AudioSource> (); 
 	}
 
 	// Update is called once per frame
@@ -46,23 +49,24 @@ public class ShipController : MonoBehaviour {
 
 	void Fire()
 	{
-			if (!shooting) {
-				return;
-			}
-			// Create the Bullet from the Bullet Prefab
-			var bullet = (GameObject)Instantiate(
-				bulletPrefab,
-				transform.position,
-				transform.rotation);
+		if (!shooting) {
+			return;
+		}
+		// Create the Bullet from the Bullet Prefab
+		var bullet = (GameObject)Instantiate(
+			bulletPrefab,
+			transform.position,
+			transform.rotation);
 
-	//		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
-	//		otherController.direction = direction;
+//		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
+//		otherController.direction = direction;
 
-			// Add velocity to the bullet
-			// bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+		// Add velocity to the bullet
+		// bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
 
-			// Destroy the bullet after 2 seconds
-			Destroy(bullet, 2.0f);  
+		// Destroy the bullet after 2 seconds
+		laser.Play();
+		Destroy(bullet, 2.0f);  
 	}
 
 	void Rotate(float amount)

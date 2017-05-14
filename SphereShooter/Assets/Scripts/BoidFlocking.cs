@@ -16,8 +16,11 @@ public class BoidFlocking : MonoBehaviour
 	public int health;
 	public Rigidbody earth; 
 	private float radius; 
+
+	private AudioSource explosion; 
 	void Start ()
 	{
+		explosion = GetComponent<AudioSource> (); 
 		rigidbody = GetComponent<Rigidbody> ();
 		health = 2;
 //		StartCoroutine ("BoidSteering");
@@ -109,6 +112,7 @@ public class BoidFlocking : MonoBehaviour
         {
 			Destroy(col.gameObject);
             if (this.health-- <= 0) {
+				explosion.Play ();
 				GetComponent<ParticleSystem> ().Emit (10);
 
             	Destroy(this.gameObject, 0.5f);
