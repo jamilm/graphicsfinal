@@ -63,14 +63,14 @@ public class ProjectileController : MonoBehaviour {
 		transform.localPosition = rotation * Vector3.forward * radius;
 		transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
 	}
-
-	void OnTriggerEnter (Collider col)
-    {
-        if(col.gameObject.name == "Cube(Clone)")
-        {
-            Destroy(col.gameObject);
-            Destroy(this.gameObject);
-        }
-    }
+//
+//	void OnTriggerEnter (Collider col)
+//    {
+//        if(col.gameObject.name == "Cube(Clone)")
+//        {
+//            Destroy(col.gameObject);
+//            Destroy(this.gameObject);
+//        }
+//    }
 
 }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BoidFlocking : MonoBehaviour
 {
 	private GameObject Controller;
+	private List<GameObject> allBoids;
+
 	private bool inited = false;
 	private float minVelocity;
 	private float maxVelocity;
@@ -67,6 +70,8 @@ public class BoidFlocking : MonoBehaviour
 		randomness = boidController.randomness;
 		chasee = boidController.chasee;
 		inited = true;
+
+		allBoids = boidController.boids;
 	}
 
 	public void Update() {
@@ -97,4 +102,14 @@ public class BoidFlocking : MonoBehaviour
 
 
 	}
+	void OnTriggerEnter (Collider col)
+    {
+        if(col.gameObject.tag == "bullet")
+        {
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+			var test = allBoids.Remove (this.gameObject);
+			print (test);
+        }
+    }
 }
