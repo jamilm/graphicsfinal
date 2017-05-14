@@ -94,7 +94,7 @@ public class BoidFlocking : MonoBehaviour
 			}
 
 			Vector3 dist = rigidbody.position - earth.position;
-			if (dist.magnitude > 1f) {
+			if (dist.magnitude > .75f) {
 				dist.Normalize ();
 				dist *= 0.5f;
 				rigidbody.position = dist;
@@ -108,9 +108,9 @@ public class BoidFlocking : MonoBehaviour
         if(col.gameObject.tag == "bullet")
         {
             Destroy(col.gameObject);
-            Destroy(this.gameObject);
-			var test = allBoids.Remove (this.gameObject);
-			print (test);
+            if (this.health-- <= 0) {
+            	Destroy(this.gameObject);
+			}
         }
     }
 }
