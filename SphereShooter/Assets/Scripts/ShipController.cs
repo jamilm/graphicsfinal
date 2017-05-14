@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour {
 
+	public GameObject bulletPrefab;
+	public Transform bulletSpawn;
+
 	public float radius = 0.55f;
-	public float translateSpeed = 90.0f;
+	public float translateSpeed = 180.0f;
 	public float rotateSpeed = 360.0f;
 
 	float angle = 0.0f;
@@ -14,17 +17,39 @@ public class ShipController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		// movement
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
-		if (Input.GetKey(KeyCode.LeftArrow))  Translate(-translateSpeed, 0);//Rotate( rotateSpeed);
-		if (Input.GetKey(KeyCode.RightArrow)) Translate(translateSpeed, 0);//Rotate(-rotateSpeed);
+		if (Input.GetKey(KeyCode.A))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
+		if (Input.GetKey(KeyCode.D)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
 
 		// Translate forward/backward with up/down arrows
-		if (Input.GetKey(KeyCode.UpArrow))    Translate(0,  translateSpeed);
-		if (Input.GetKey(KeyCode.DownArrow))  Translate(0, -translateSpeed);
+		if (Input.GetKey(KeyCode.W))    Translate(0,  translateSpeed);
+		if (Input.GetKey(KeyCode.S))  Translate(0, -translateSpeed);
 
 		UpdatePositionRotation();
+
+		// shooting
+		if (Input.GetKey(KeyCode.Space))  Fire();
+	}
+
+	void Fire()
+	{
+		// Create the Bullet from the Bullet Prefab
+		var bullet = (GameObject)Instantiate(
+			bulletPrefab,
+			transform.position,
+			transform.rotation);
+
+		//		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
+		//		otherController.direction = direction;
+
+		// Add velocity to the bullet
+		// bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+
+		// Destroy the bullet after 2 seconds
+		Destroy(bullet, 2.0f);        
 	}
 
 	void Rotate(float amount)
@@ -44,15 +69,6 @@ public class ShipController : MonoBehaviour {
 	{
 		transform.localPosition = rotation * Vector3.forward * radius;
 		transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.CompareTag ("Coin")) 
-		{
-			other.gameObject.SetActive (false);
-//			Destroy (other.gameObject);
-		}
 	}
 
 }

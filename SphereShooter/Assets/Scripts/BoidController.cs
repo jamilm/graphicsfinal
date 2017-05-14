@@ -84,7 +84,7 @@ public class BoidController : MonoBehaviour
 		float theta = Mathf.Acos (z / r);
 		float phi = Mathf.Atan (y / x);
 
-		print (new Vector3 (r, theta, phi));
+//		print (new Vector3 (r, theta, phi));
 		return new Vector3 (r, theta, phi);
 	}
 
