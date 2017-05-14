@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter", "Assembly-CSharp-firstpass.csproj", "{53BFC57A-7F5A-F37C-013A-26A07E57906D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter", "Assembly-CSharp.csproj", "{E13EA2EE-C1F4-2F53-B7DB-E75AAD9938FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter", "Assembly-CSharp-Editor-firstpass.csproj", "{E58DC181-90B7-7586-6098-EBE57562B072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53BFC57A-7F5A-F37C-013A-26A07E57906D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53BFC57A-7F5A-F37C-013A-26A07E57906D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53BFC57A-7F5A-F37C-013A-26A07E57906D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53BFC57A-7F5A-F37C-013A-26A07E57906D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E13EA2EE-C1F4-2F53-B7DB-E75AAD9938FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E13EA2EE-C1F4-2F53-B7DB-E75AAD9938FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E13EA2EE-C1F4-2F53-B7DB-E75AAD9938FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E13EA2EE-C1F4-2F53-B7DB-E75AAD9938FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E58DC181-90B7-7586-6098-EBE57562B072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E58DC181-90B7-7586-6098-EBE57562B072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E58DC181-90B7-7586-6098-EBE57562B072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E58DC181-90B7-7586-6098-EBE57562B072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

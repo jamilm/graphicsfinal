@@ -20,7 +20,7 @@ public class BoidFlocking : MonoBehaviour
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
-		health = 5;
+		health = 2;
 		planetAndBoidRadius = radius + transform.localScale.x; // assumes x, y, z transformed equally
 //		StartCoroutine ("BoidSteering");
 	}
@@ -111,7 +111,9 @@ public class BoidFlocking : MonoBehaviour
         {
             Destroy(col.gameObject);
             if (this.health-- <= 0) {
-            	Destroy(this.gameObject);
+				GetComponent<ParticleSystem> ().Emit (10);
+
+            	Destroy(this.gameObject, 1.0f);
 				allBoids.Remove (this.gameObject);
 			}
         }
