@@ -53,12 +53,14 @@ public class BoidController : MonoBehaviour
 
 		foreach (GameObject boid in boids)
 		{
-			Vector3 boidCenterEuclid = boid.transform.localPosition;
-			Vector3 boidCenterSpherical = EuclideanToSpherical (boidCenterEuclid);
-			theCenterSpherical = theCenterSpherical + boidCenterSpherical;
+			if (boid) {
+				Vector3 boidCenterEuclid = boid.transform.localPosition;
+				Vector3 boidCenterSpherical = EuclideanToSpherical (boidCenterEuclid);
+				theCenterSpherical = theCenterSpherical + boidCenterSpherical;
 
-			//theCenter = theCenter + boid.transform.localPosition;
-			theVelocity = theVelocity + boid.GetComponent<Rigidbody>().velocity;
+				//theCenter = theCenter + boid.transform.localPosition;
+				theVelocity = theVelocity + boid.GetComponent<Rigidbody>().velocity;
+			}
 		}
 
 		// convert center spherical to euclidean
@@ -84,7 +86,7 @@ public class BoidController : MonoBehaviour
 		float theta = Mathf.Acos (z / r);
 		float phi = Mathf.Atan (y / x);
 
-		print (new Vector3 (r, theta, phi));
+		//print (new Vector3 (r, theta, phi));
 		return new Vector3 (r, theta, phi);
 	}
 

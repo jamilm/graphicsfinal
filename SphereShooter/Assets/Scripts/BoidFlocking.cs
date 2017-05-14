@@ -88,7 +88,7 @@ public class BoidFlocking : MonoBehaviour
 			}
 
 			Vector3 dist = rigidbody.position - earth.position;
-			if (dist.magnitude > 0.5f) {
+			if (dist.magnitude > 1f) {
 				dist.Normalize ();
 				dist *= 0.5f;
 				rigidbody.position = dist;
