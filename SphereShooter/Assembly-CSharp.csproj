@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BoidController.cs" />
      <Compile Include="Assets\Scripts\BoidFlocking.cs" />
+     <Compile Include="Assets\Scripts\HealthController.cs" />
      <Compile Include="Assets\Scripts\ProjectileController.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
