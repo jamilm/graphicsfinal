@@ -8,7 +8,7 @@ public class ShipController : MonoBehaviour {
 	public Transform bulletSpawn;
 
 	public float radius = 0.55f;
-	public float translateSpeed = 180.0f;
+	public float translateSpeed = 90.0f;
 	public float rotateSpeed = 360.0f;
 
 	private float bulletsPerSecond = 5f;

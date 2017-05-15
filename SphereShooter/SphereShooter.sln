@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter", "SphereShoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter.Editor.Plugins", "SphereShooter.Editor.Plugins.csproj", "{AB182D1F-4005-79FA-DA05-632B8D2DE195}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SphereShooter.Editor", "SphereShooter.Editor.csproj", "{1EF868A4-451D-D3DF-5A5B-0EAEBA570479}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{AB182D1F-4005-79FA-DA05-632B8D2DE195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB182D1F-4005-79FA-DA05-632B8D2DE195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB182D1F-4005-79FA-DA05-632B8D2DE195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF868A4-451D-D3DF-5A5B-0EAEBA570479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF868A4-451D-D3DF-5A5B-0EAEBA570479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF868A4-451D-D3DF-5A5B-0EAEBA570479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF868A4-451D-D3DF-5A5B-0EAEBA570479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
