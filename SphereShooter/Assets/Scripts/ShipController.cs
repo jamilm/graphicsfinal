@@ -102,14 +102,14 @@ public class ShipController : MonoBehaviour {
 			return;
 		}
 		// Create the Bullet from the Bullet Prefab
-		else if (shooting) {
+		else if (shooting && !superShooting) {
 			var bullet = (GameObject)Instantiate (
 				             bulletPrefab,
 				             transform.position,
 				             transform.rotation);
 			Destroy(bullet, 2.0f);  
 
-		} else {
+		} else if (!shooting && superShooting) {
 			lastKillVal = kills;
 			bulletSlider.value = 0;
 			superBulletSound.Play ();
@@ -120,6 +120,24 @@ public class ShipController : MonoBehaviour {
 				                 transform.rotation);
 			print ("Super bullet created");
 			Destroy (superBullet, 5f);
+		}
+		else {
+			lastKillVal = kills;
+			bulletSlider.value = 0;
+			superBulletSound.Play ();
+			superBulletUsed = true; 
+			var superBullet = (GameObject)Instantiate (
+				                 superBulletPrefab,
+				                 transform.position,
+				                 transform.rotation);
+			print ("Super bullet created");
+			Destroy (superBullet, 5f);
+
+			var bullet = (GameObject)Instantiate (
+				             bulletPrefab,
+				             transform.position,
+				             transform.rotation);
+			Destroy(bullet, 2.0f); 
 		}
 //		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
 //		otherController.direction = direction;
