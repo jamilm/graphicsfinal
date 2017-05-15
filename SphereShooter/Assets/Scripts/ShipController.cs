@@ -39,7 +39,6 @@ public class ShipController : MonoBehaviour {
 	void Update () {
 		// movement
 		float currScore = ScoreController.score;
-		print (currScore);
 		if (superBulletUsed && currScore > 0 && currScore % superBulletReq == 0) {
 			superBulletUsed = false; 
 		}

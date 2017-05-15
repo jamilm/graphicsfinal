@@ -21,10 +21,8 @@ public class HealthController : MonoBehaviour {
 
 		Canvas parentCanvas = healthSlider.GetComponentInParent<Canvas> ();
 		Rect canvasRect = parentCanvas.pixelRect;
-		print (canvasRect.height);
-		print (canvasRect.width);
 		RectTransform rt = healthSlider.GetComponent<RectTransform> ();
-		rt.sizeDelta = new Vector2( canvasRect.width*0.005f, canvasRect.height);
+		//rt.sizeDelta = new Vector2( canvasRect.width*0.1f, canvasRect.height);
 	}
 	
 	// Update is called once per frame
