@@ -25,7 +25,7 @@ public class ShipController : MonoBehaviour {
 
 	void Start () {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
-		laser = GetComponent<AudioSource> ();
+		laser = GetComponents<AudioSource> ()[0];
 	}
 
 	// Update is called once per frame

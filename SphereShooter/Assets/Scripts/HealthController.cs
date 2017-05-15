@@ -11,10 +11,13 @@ public class HealthController : MonoBehaviour {
 	bool isDead;                                                // Whether the player is dead.
 	bool damaged;                                               // True when the player gets damaged.
 
+	private AudioSource hitSound; 
+
 	// Use this for initialization
 	void Start () {
 		currentHealth = startingHealth;
 		healthSlider.value = currentHealth;
+		hitSound = GetComponents<AudioSource> () [1];
 	}
 	
 	// Update is called once per frame
@@ -43,6 +46,7 @@ public class HealthController : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "Enemy")
 		{
+			hitSound.Play ();
 			Destroy(col.gameObject);
 			currentHealth -= 10;
 			healthSlider.value = currentHealth;
