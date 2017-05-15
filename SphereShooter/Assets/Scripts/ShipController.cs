@@ -25,6 +25,8 @@ public class ShipController : MonoBehaviour {
 	Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
 	public Image startScreen;
+	public Text startMessage; 
+	public Text restartMessage;
 	private AudioSource laser; 
 
 	public Text gameOver; 
@@ -60,6 +62,8 @@ public class ShipController : MonoBehaviour {
 			if (Input.anyKey) {
 				 Time.timeScale = 1;
 				 startScreen.enabled = false;
+				startMessage.enabled = false;
+
 			}
 		}
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
@@ -93,6 +97,7 @@ public class ShipController : MonoBehaviour {
 			gameOver.enabled = true;
 			shooting = false;
 			superShooting = false;
+			restartMessage.enabled = true;
 		}
 	}
 
