@@ -18,6 +18,7 @@ public class ShipController : MonoBehaviour {
  	private bool shooting = false;
 	private bool superShooting = false; 
 	private bool superBulletUsed = true;
+
  	public static bool alive = true;
 	float angle = 0.0f;
 	Vector3 direction = Vector3.one;
