@@ -99,7 +99,7 @@ public class BoidController : MonoBehaviour
 		//flockCenter = theCenter/(flockSize);
 		flockVelocity = theVelocity/(flockSize);
 
-//		Debug.DrawRay(flockCenter, flockCenter*100.0f, Color.red);
+		Debug.DrawRay(flockCenter, flockCenter*100.0f, Color.red);
 
 		if (Time.fixedTime % respawnRate == 1) {
 			flockSize += 1;
