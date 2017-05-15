@@ -24,6 +24,10 @@ public class BoidController : MonoBehaviour
 
 	void Start()
 	{
+//		var waitTime = 5.0f;
+//		yield WaitForSeconds(waitTime);
+//
+//		GetComponent<StartScreenController>().Disable;
 		boids = new List<GameObject> (); 
 //		boids = new GameObject[flockSize];
 		for (var i=0; i<flockSize; i++)
