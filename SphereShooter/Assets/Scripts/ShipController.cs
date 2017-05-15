@@ -66,7 +66,7 @@ public class ShipController : MonoBehaviour {
 			if (Input.GetKey (KeyCode.Space)) {
 				shooting = true;
 			}
-			if (Input.GetKey (KeyCode.F) && !superBulletUsed) {
+			if (Input.GetKey (KeyCode.E) && !superBulletUsed) {
 				superShooting = true; 
 			}
 		} 
