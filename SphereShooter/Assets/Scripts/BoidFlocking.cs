@@ -115,6 +115,8 @@ public class BoidFlocking : MonoBehaviour
 				explosion.Play ();
 				GetComponent<ParticleSystem> ().Emit (10);
 
+				ScoreController.score++;
+            	
             	Destroy(this.gameObject, 0.5f);
 				allBoids.Remove (this.gameObject);
 			}
