@@ -56,6 +56,7 @@ public class ShipController : MonoBehaviour {
 		} 
 		else {
 			gameOver.enabled = true;
+			shooting = false;
 		}
 	}
 
