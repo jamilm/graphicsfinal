@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour {
 
@@ -20,9 +21,11 @@ public class ShipController : MonoBehaviour {
 
 	private AudioSource laser; 
 
+	public Text gameOver; 
+
 	void Start () {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
-		laser = GetComponent<AudioSource> (); 
+		laser = GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -32,20 +35,27 @@ public class ShipController : MonoBehaviour {
 
 		// Rotate with left/right arrows
 		if (alive) {
-			if (Input.GetKey(KeyCode.A))  Translate(translateSpeed, 0); //Rotate( rotateSpeed);
-			if (Input.GetKey(KeyCode.D)) Translate(-translateSpeed, 0); //Rotate(-rotateSpeed);
+			if (Input.GetKey (KeyCode.A))
+				Translate (translateSpeed, 0); //Rotate( rotateSpeed);
+			if (Input.GetKey (KeyCode.D))
+				Translate (-translateSpeed, 0); //Rotate(-rotateSpeed);
 
 			// Translate forward/backward with up/down arrows
-			if (Input.GetKey(KeyCode.W))    Translate(0,  translateSpeed);
-			if (Input.GetKey(KeyCode.S))  Translate(0, -translateSpeed);
+			if (Input.GetKey (KeyCode.W))
+				Translate (0, translateSpeed);
+			if (Input.GetKey (KeyCode.S))
+				Translate (0, -translateSpeed);
 
-			UpdatePositionRotation();
+			UpdatePositionRotation ();
 
-		// shooting
+			// shooting
 			shooting = false;
-			if (Input.GetKey(KeyCode.Space)){
+			if (Input.GetKey (KeyCode.Space)) {
 				shooting = true;
 			}
+		} 
+		else {
+			gameOver.enabled = true;
 		}
 	}
 
