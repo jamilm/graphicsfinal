@@ -8,15 +8,18 @@ public class ShipController : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public GameObject superBulletPrefab; 
 	public Transform bulletSpawn;
+	public Slider bulletSlider;
+	int kills;
 
 	public float radius = 0.55f;
 	public float translateSpeed = 90.0f;
 	public float rotateSpeed = 360.0f;
 	public float superBulletReq = 10f;
+	private int lastKillVal = 0;
 
 	private float bulletsPerSecond = 5f;
  	private bool shooting = false;
-	private bool superShooting = false; 
+	public static bool superShooting = false; 
 	private bool superBulletUsed = true;
  	public static bool alive = true;
 	float angle = 0.0f;
@@ -37,6 +40,16 @@ public class ShipController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		kills = ScoreController.score;
+		if(bulletSlider.value != 10) {
+			kills -= lastKillVal;
+			bulletSlider.value = (kills % 11);
+		}
+		// else if(ShipController.superShooting) {
+		// 	bulletSlider.value = 0;
+		// }
+
 		// movement
 		float currScore = ScoreController.score;
 		if (superBulletUsed && currScore > 0 && currScore % superBulletReq == 0) {
@@ -91,6 +104,8 @@ public class ShipController : MonoBehaviour {
 			Destroy(bullet, 2.0f);  
 
 		} else {
+			lastKillVal = kills;
+			bulletSlider.value = 0;
 			superBulletSound.Play ();
 			superBulletUsed = true; 
 			var superBullet = (GameObject)Instantiate (
