@@ -25,7 +25,7 @@ public class ShipController : MonoBehaviour {
 	float angle = 0.0f;
 	Vector3 direction = Vector3.one;
 	Quaternion rotation = Quaternion.identity;
-
+	public Image startScreen;
 	private AudioSource laser; 
 
 	public Text gameOver; 
@@ -36,6 +36,8 @@ public class ShipController : MonoBehaviour {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
 		laser = GetComponents<AudioSource> ()[0];
 		superBulletSound = GetComponents<AudioSource> () [2];
+		Time.timeScale = 0;
+		startScreen.enabled = true;
 	}
 
 	// Update is called once per frame
@@ -55,7 +57,12 @@ public class ShipController : MonoBehaviour {
 		if (superBulletUsed && currScore > 0 && currScore % superBulletReq == 0) {
 			superBulletUsed = false; 
 		}
-
+		if (startScreen.enabled) {
+			if (Input.anyKey) {
+				 Time.timeScale = 1;
+				 startScreen.enabled = false;
+			}
+		}
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows

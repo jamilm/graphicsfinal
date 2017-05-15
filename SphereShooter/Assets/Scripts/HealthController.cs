@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour {
 
@@ -44,6 +45,10 @@ public class HealthController : MonoBehaviour {
 		damaged = false;
 		if (currentHealth <= 0) {
 			ShipController.alive = false;
+			if (Input.GetKey (KeyCode.R)) {
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+				ShipController.alive = true;
+			}
 		}
 	}
 

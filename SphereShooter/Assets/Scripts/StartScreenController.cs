@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class StartScreenController : MonoBehaviour {
 
 
-	public Image startScreen;
+	public static Image startScreen;
 
-	private bool started = false; 
+	public static bool started = false; 
 	// Use this for initialization
 	void Start () {
 		Enable ();
