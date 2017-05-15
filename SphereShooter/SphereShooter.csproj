@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\ScoreController.cs" />
     <Compile Include="Assets\Scripts\ShipController.cs" />
     <Compile Include="Assets\Scripts\StartScreenController.cs" />
+    <Compile Include="Assets\Scripts\SuperBulletController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Luminaris Starship\Documentation\Readme Luminaris.txt" />

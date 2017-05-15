@@ -15,7 +15,7 @@ public class ScoreController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = score.ToString().PadRight(7,'0');
+		scoreText.text = score.ToString().PadLeft(7,'0');
 	}
 
 }
