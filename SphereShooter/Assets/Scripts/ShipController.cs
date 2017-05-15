@@ -27,9 +27,12 @@ public class ShipController : MonoBehaviour {
 
 	public Text gameOver; 
 
+	private AudioSource superBulletSound;
+
 	void Start () {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
 		laser = GetComponents<AudioSource> ()[0];
+		superBulletSound = GetComponents<AudioSource> () [2];
 	}
 
 	// Update is called once per frame
@@ -89,6 +92,7 @@ public class ShipController : MonoBehaviour {
 			Destroy(bullet, 2.0f);  
 
 		} else {
+			superBulletSound.Play ();
 			superBulletUsed = true; 
 			var superBullet = (GameObject)Instantiate (
 				                 superBulletPrefab,
