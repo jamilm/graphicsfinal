@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class ShipController : MonoBehaviour {
 
 	public GameObject bulletPrefab;
+	public GameObject superBulletPrefab; 
 	public Transform bulletSpawn;
 
 	public float radius = 0.55f;
 	public float translateSpeed = 90.0f;
 	public float rotateSpeed = 360.0f;
+	public float superBulletReq = 10f;
 
 	private float bulletsPerSecond = 5f;
  	private bool shooting = false;
+	private bool superShooting = false; 
+	private bool superBulletUsed = true;
  	public static bool alive = true;
 	float angle = 0.0f;
 	Vector3 direction = Vector3.one;
@@ -31,6 +35,12 @@ public class ShipController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// movement
+		float currScore = ScoreController.score;
+		print (currScore);
+		if (superBulletUsed && currScore > 0 && currScore % superBulletReq == 0) {
+			superBulletUsed = false; 
+		}
+
 		direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
 
 		// Rotate with left/right arrows
@@ -50,27 +60,43 @@ public class ShipController : MonoBehaviour {
 
 			// shooting
 			shooting = false;
+			superShooting = false;
 			if (Input.GetKey (KeyCode.Space)) {
 				shooting = true;
+			}
+			if (Input.GetKey (KeyCode.F) && !superBulletUsed) {
+				superShooting = true; 
 			}
 		} 
 		else {
 			gameOver.enabled = true;
 			shooting = false;
+			superShooting = false;
 		}
 	}
 
 	void Fire()
 	{
-		if (!shooting) {
+		if (!shooting && !superShooting) {
 			return;
 		}
 		// Create the Bullet from the Bullet Prefab
-		var bullet = (GameObject)Instantiate(
-			bulletPrefab,
-			transform.position,
-			transform.rotation);
+		else if (shooting) {
+			var bullet = (GameObject)Instantiate (
+				             bulletPrefab,
+				             transform.position,
+				             transform.rotation);
+			Destroy(bullet, 2.0f);  
 
+		} else {
+			superBulletUsed = true; 
+			var superBullet = (GameObject)Instantiate (
+				                 superBulletPrefab,
+				                 transform.position,
+				                 transform.rotation);
+			print ("Super bullet created");
+			Destroy (superBullet, 5f);
+		}
 //		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
 //		otherController.direction = direction;
 
@@ -79,7 +105,6 @@ public class ShipController : MonoBehaviour {
 
 		// Destroy the bullet after 2 seconds
 		laser.Play();
-		Destroy(bullet, 2.0f);  
 	}
 
 	void Rotate(float amount)

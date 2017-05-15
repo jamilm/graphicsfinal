@@ -8,6 +8,8 @@ TagManager:
   - bullet
   - Fire
   - Enemy
+  - Earth
+  - Score
   layers:
   - Default
   - TransparentFX

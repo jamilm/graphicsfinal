@@ -14,7 +14,14 @@ public class ProjectileController : MonoBehaviour {
 	public LineRenderer lineRenderer; 
 	private Vector3 direction; 
 	// Use this for initialization
+
+//	private GameObject earth; 
+//	private BoidController controller;
+//	private List<GameObject> boids; 
 	void Start () {
+//		earth = GameObject.FindGameObjectsWithTag ("Earth")[0];
+//		controller = earth.GetComponent<BoidController> (); 
+//		boids = controller.boids; 
 
 		Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
 		mousePosition.z = 25f;
@@ -27,7 +34,16 @@ public class ProjectileController : MonoBehaviour {
 	void Update () {
 		
 		transform.RotateAround(new Vector3(0.0f,0.0f,0.0f), direction, 50 * Time.deltaTime);
-
+//		foreach (GameObject boid in boids) {
+//
+//			if (transform != null && boid != null) {
+//				float dist = Vector3.Distance (transform.position, boid.transform.position);
+//
+//				if (dist < 1f) {
+//					boid.GetComponent<BoidFlocking> ().chasee = gameObject;
+//				}
+//			}
+//		}
 //		Debug.Log (direction);
 //		Debug.Log (mousePosition);
 //		lineRenderer.SetPosition (0, transform.position);

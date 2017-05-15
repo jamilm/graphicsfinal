@@ -11,11 +11,13 @@ public class BoidFlocking : MonoBehaviour
 	private float minVelocity;
 	private float maxVelocity;
 	private float randomness;
-	private GameObject chasee;
+	public GameObject chasee;
 	private Rigidbody rigidbody; 
 	public int health;
 	public Rigidbody earth; 
 	private float radius; 
+
+	public float scale = 1f; 
 
 	private AudioSource explosion; 
 	void Start ()
@@ -62,7 +64,7 @@ public class BoidFlocking : MonoBehaviour
 //				separation -= boidController.boids [i].transform.position;
 //			}
 //		}
-		return (flockCenter * 0.1f + flockVelocity * 0.1f + follow * 1.0f  + 5.0f* randomize * randomness);
+		return (flockCenter * 0.1f + flockVelocity * 0.1f + follow * 1.0f  + 5.0f* randomize * randomness)*scale;
 	}
 
 	public void SetController (GameObject theController)
@@ -80,6 +82,11 @@ public class BoidFlocking : MonoBehaviour
 
 	public void Update() {
 		if (inited) {
+
+			if (!chasee) {
+				chasee = Controller.GetComponent<BoidController>().chasee;
+				scale = 1f;
+			}
 
 			Vector3 normal = (transform.position - earth.position).normalized;
 
