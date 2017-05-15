@@ -36,9 +36,9 @@ public class ShipController : MonoBehaviour {
 		// Rotate with left/right arrows
 		if (alive) {
 			if (Input.GetKey (KeyCode.A))
-				Translate (translateSpeed, 0); //Rotate( rotateSpeed);
+				Rotate( rotateSpeed); //Translate (translateSpeed, 0);
 			if (Input.GetKey (KeyCode.D))
-				Translate (-translateSpeed, 0); //Rotate(-rotateSpeed);
+				Rotate(-rotateSpeed);  //Translate (-translateSpeed, 0);
 
 			// Translate forward/backward with up/down arrows
 			if (Input.GetKey (KeyCode.W))
