@@ -1,16 +1,23 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupItem="SphereShooter.Plugins.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BoidFlocking.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BoidController.cs">
     <Files>
-      <File FileName="Assets/Scripts/BoidFlocking.cs" Line="112" Column="1" />
-      <File FileName="Assets/Scripts/BoidController.cs" Line="43" Column="37" />
-      <File FileName="Assets/Scripts/HealthController.cs" Line="6" Column="2" />
-      <File FileName="Assets/Scripts/ProjectileController.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/ShipController.cs" Line="45" Column="37" />
+      <File FileName="Assets/Scripts/ShipController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BoidFlocking.cs" Line="62" Column="11" />
+      <File FileName="Assets/Scripts/BoidController.cs" Line="102" Column="21" />
+      <File FileName="Assets/Scripts/HealthController.cs" Line="11" Column="6" />
+      <File FileName="Assets/Scripts/StartScreenController.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/SuperBulletController.cs" Line="26" Column="17" />
+      <File FileName="Assets/Scripts/ScoreController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ProjectileController.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Katy/Documents/COS429/Assignment1/graphicsfinal_master/graphicsfinal/SphereShooter/Assets/Scripts/ProjectileController.cs" line="22" column="1" />
+      <Breakpoint file="/Users/Katy/Documents/COS429/Assignment1/graphicsfinal_master/graphicsfinal/SphereShooter/Assets/Scripts/ProjectileController.cs" line="42" column="1" />
+      <Breakpoint file="/Users/Katy/Documents/COS429/Assignment1/graphicsfinal_master/graphicsfinal/SphereShooter/Assets/Scripts/ProjectileController.cs" line="23" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

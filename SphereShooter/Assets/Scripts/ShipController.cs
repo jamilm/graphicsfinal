@@ -24,12 +24,14 @@ public class ShipController : MonoBehaviour {
 	Quaternion rotation = Quaternion.identity;
 
 	private AudioSource laser; 
+	private AudioSource superBulletSound;
 
 	public Text gameOver; 
 
 	void Start () {
 		InvokeRepeating("Fire", 0.0f, 1.0f / bulletsPerSecond);
 		laser = GetComponents<AudioSource> ()[0];
+		superBulletSound = GetComponents<AudioSource> () [2];
 	}
 
 	// Update is called once per frame
@@ -90,12 +92,13 @@ public class ShipController : MonoBehaviour {
 
 		} else {
 			superBulletUsed = true; 
+			superBulletSound.Play ();
 			var superBullet = (GameObject)Instantiate (
 				                 superBulletPrefab,
 				                 transform.position,
 				                 transform.rotation);
 			print ("Super bullet created");
-			Destroy (superBullet, 5f);
+			Destroy (superBullet, 3f);
 		}
 //		ProjectileController otherController = (ProjectileController) bullet.GetComponent ("Projectile Controller");
 //		otherController.direction = direction;
