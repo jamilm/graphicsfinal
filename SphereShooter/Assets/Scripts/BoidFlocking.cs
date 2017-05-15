@@ -102,9 +102,14 @@ public class BoidFlocking : MonoBehaviour
 				dist *= radius;
 				rigidbody.position = dist;
 			}
+
+			float moveHorizontal = Input.GetAxisRaw ("Horizontal");
+			float moveVertical = Input.GetAxisRaw ("Vertical");
+			Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+			if (movement != Vector3.zero) {
+				transform.rotation = Quaternion.LookRotation (movement);
+			}
 		}
-
-
 	}
 	void OnTriggerEnter (Collider col)
     {
