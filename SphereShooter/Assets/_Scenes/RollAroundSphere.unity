@@ -166,15 +166,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127074476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2090522345}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127074478
@@ -198,12 +198,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 300
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 150
-    m_Alignment: 0
+    m_MaxSize: 300
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -236,7 +236,7 @@ Prefab:
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
@@ -266,12 +266,12 @@ Prefab:
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 30
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
@@ -281,27 +281,27 @@ Prefab:
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 17.729996
+      value: 17.72998
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 224179244685750562, guid: 2060c7c002460479c933fded59044d60,
         type: 2}
@@ -331,6 +331,16 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553534870236382, guid: 2060c7c002460479c933fded59044d60,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553534870236382, guid: 2060c7c002460479c933fded59044d60,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2060c7c002460479c933fded59044d60, type: 2}
@@ -456,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7529412, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0.7529412, b: 0.2509804, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -504,16 +514,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 178920161}
   m_GameObject: {fileID: 431321651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 2090522345}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -30}
-  m_SizeDelta: {x: 19.440002, y: 17.729996}
+  m_AnchorMin: {x: 0.05, y: 0.95}
+  m_AnchorMax: {x: 0.05, y: 0.95}
+  m_AnchoredPosition: {x: -24, y: 15}
+  m_SizeDelta: {x: 19.440002, y: 17.72998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431321653
 MonoBehaviour:
@@ -537,7 +547,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 200
+    m_FontSize: 300
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1237,7 +1247,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1761905341}
   - component: {fileID: 1761905342}
-  - component: {fileID: 1761905343}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1253,17 +1262,17 @@ RectTransform:
   m_GameObject: {fileID: 1761905340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 197702490}
   - {fileID: 86536016}
   m_Father: {fileID: 2090522345}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.85, y: 0.5}
+  m_AnchorMax: {x: 0.95, y: 0.5}
+  m_AnchoredPosition: {x: 48.5, y: 0}
+  m_SizeDelta: {x: -49, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761905342
 MonoBehaviour:
@@ -1284,7 +1293,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0.7529412, b: 0.1254902, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1313,19 +1322,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1761905343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761905340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 0
 --- !u!1 &1789516516
 GameObject:
   m_ObjectHideFlags: 0
