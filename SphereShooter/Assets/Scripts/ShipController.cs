@@ -14,7 +14,6 @@ public class ShipController : MonoBehaviour {
 	public float radius = 0.55f;
 	public float translateSpeed = 90.0f;
 	public float rotateSpeed = 360.0f;
-	public float superBulletReq = 10f;
 	private int lastKillVal = 0;
 
 	private float bulletsPerSecond = 5f;
@@ -54,7 +53,7 @@ public class ShipController : MonoBehaviour {
 
 		// movement
 		float currScore = ScoreController.score;
-		if (superBulletUsed && currScore > 0 && currScore % superBulletReq == 0) {
+		if (superBulletUsed && bulletSlider.value == 10) {
 			superBulletUsed = false; 
 		}
 		if (startScreen.enabled) {
