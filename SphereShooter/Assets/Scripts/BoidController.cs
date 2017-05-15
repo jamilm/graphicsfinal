@@ -101,6 +101,7 @@ public class BoidController : MonoBehaviour
 		Debug.DrawRay(flockCenter, flockCenter*100.0f, Color.red);
 
 		if (Time.fixedTime % respawnRate == 1) {
+			flockSize += 1;
 			Respawn ();
 		}
 	}
